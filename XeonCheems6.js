@@ -38,9 +38,9 @@ const ini_mark = `0@s.whatsapp.net`
 const ownernya = ownernomer + '@s.whatsapp.net'
 
 //TIME
-const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
-const time2 = moment().tz('Asia/Kolkata').format('HH:mm:ss')  
+const xtime = moment.tz('Asia/Jakarta').format('HH:mm:ss')
+const xdate = moment.tz('Asia/Jakarta').format('DD/MM/YYYY')
+const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')  
  if(time2 < "23:59:00"){
 var ucapanWaktu = `Good Night 🌌`
  }
@@ -294,7 +294,7 @@ const hsjdh = randomNomor(5)
 if (isCmd) {
 data = await fetchJson('https://api.countapi.xyz/hit/XeonBotInc-md/visits')
 jumlahcmd = `${data.value}`
-dataa = await fetchJson(`https://api.countapi.xyz/hit/XeonBotInc-md${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
+dataa = await fetchJson(`https://api.countapi.xyz/hit/XeonBotInc-md${moment.tz('Asia/Jakarta').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
 }
 
@@ -1631,7 +1631,7 @@ await XeonBotInc.sendMessage(i, { video:media,  caption: txt, mentions:participa
                  let teks = `${themeemoji} *GROUP CHAT LIST*\n\nTotal Group : ${anulistg.length} Group\n\n`
                  for (let i of anulistg) {
                      let metadata = await XeonBotInc.groupMetadata(i)
-                     teks += `${themeemoji} *Name :* ${metadata.subject}\n${themeemoji} *Owner :* ${metadata.owner !== undefined ? '@' + metadata.owner.split`@`[0] : 'Unknown'}\n${themeemoji} *ID :* ${metadata.id}\n${themeemoji} *Made :* ${moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss')}\n${themeemoji} *Member :* ${metadata.participants.length}\n\n────────────────────────\n\n`
+                     teks += `${themeemoji} *Name :* ${metadata.subject}\n${themeemoji} *Owner :* ${metadata.owner !== undefined ? '@' + metadata.owner.split`@`[0] : 'Unknown'}\n${themeemoji} *ID :* ${metadata.id}\n${themeemoji} *Made :* ${moment(metadata.creation * 1000).tz('Asia/Jakarta').format('DD/MM/YYYY HH:mm:ss')}\n${themeemoji} *Member :* ${metadata.participants.length}\n\n────────────────────────\n\n`
                  }
                  XeonBotInc.sendTextWithMentions(m.chat, teks, m)
              }
@@ -5826,8 +5826,7 @@ case 'rate': {
             break
 case 'runtime': {
             	let lowq = `*The Bot Has Been Online For:*\n*${runtime(process.uptime())}*`
-                let buttons = [{ buttonId: 'menu', buttonText: { displayText: 'Menu' }, type: 1 }]
-                await XeonBotInc.sendButtonText(m.chat, buttons, lowq, botname, m, {quoted: fkontak})
+m.reply(lowq)
             	}
             break
 case 'handsomecheck':
@@ -6262,7 +6261,7 @@ var inputnumber = text.split(" ")[0]
                 if (anu1 == '401' || anu1.status.length == 0) {
                     nobio += `wa.me/${anu[0].jid.split("@")[0]}\n`
                 } else {
-                    text66 += `🪀 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n 🎗️*Bio :* ${anu1.status}\n🧐*Last update :* ${moment(anu1.setAt).tz('Asia/Kolkata').format('HH:mm:ss DD/MM/YYYY')}\n\n`
+                    text66 += `🪀 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n 🎗️*Bio :* ${anu1.status}\n🧐*Last update :* ${moment(anu1.setAt).tz('Asia/Jakarta').format('HH:mm:ss DD/MM/YYYY')}\n\n`
                 }
             } catch {
                 nowhatsapp += `${number0}${i}${number1}\n`
@@ -7272,7 +7271,8 @@ My family
 And all friends who helped assemble this sexy script !!!`
 break
 case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
-            let ownernya = ownernomer + '@s.whatsapp.net'
+let result = fs.readFileSync('./XeonMedia/theme/Cheems-bot.mp4')
+ let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed();
             let latensie = speed() - timestampe
@@ -7305,34 +7305,600 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 └─ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 
 │𝗧𝗶𝗺𝗲 : ${xtime}
 │𝗗𝗮𝘁𝗲 : ${xdate}
-└┬────────────┈ ⳹
-   │✑  Please Select
-   │✑  The Button Below
-   └─────────────┈ ⳹`
-            let ments = [ownernya, me, ini_mark]        
-            let buttons = [{ buttonId: 'allmenu', buttonText: { displayText: 'All Menu' }, type: 1 },{ buttonId: 'command', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'sc', buttonText: { displayText: 'Script' }, type: 1 }]
-            let buttonMessage = {
-  document: fs.readFileSync('./XeonMedia/theme/cheems.xlsx'),
-  fileName : `${wm}`,
-  mimetype: `${docs}`,
-  fileLength: '99999999999999',
-  pageCount: '1000000000',
-  caption: xeonezy,
-  footer: botname,
-  buttons: buttons,
-  mentions: ments,
-  headerType: 4,
-  contextInfo:{externalAdReply:{
-  title: botname,
-  body: wm, 
-  showAdAttribution: true,
-  thumbnail: thumb,
-  mediaType: 2,
-  mediaUrl: websitex,
-  sourceUrl: websitex
-  }}
-  }
-  XeonBotInc.sendMessage(m.chat, buttonMessage, {quoted: fkontak})
+└────────────┈ ⳹
+╔═══════✪ OWNER 	
+╠ ${prefix}self
+╠ ${prefix}public
+╠ ${prefix}join [link]
+╠ ${prefix}leavegc
+╠ ${prefix}setbio
+╠ ${prefix}bctext [text]
+╠ ${prefix}bcimage [reply img/text]
+╠ ${prefix}bcvideo [reply img/text]
+╠ ${prefix}setbotpp [image]
+╠ ${prefix}setthumb [reply img]
+╠ ${prefix}setexif
+╠ ${prefix}hijack
+╠ ${prefix}creategroup [name]
+╠ ${prefix}block [tag/number]
+╠ ${prefix}unblock [tag/number]
+╠═══════✪ GROUP 	        
+╠${prefix}grouplink
+╠${prefix}ephemeral [option]
+╠${prefix}setgcpp [image]
+╠${prefix}setname [text]
+╠${prefix}setdesc [text]
+╠${prefix}group 
+╠${prefix}resetgrouplink
+╠${prefix}editinfo [option]
+╠${prefix}menfess [number]
+╠${prefix}add [user]
+╠${prefix}kick [reply/tag]
+╠${prefix}hidetag [text]
+╠${prefix}tagall [text]
+╠${prefix}antilinkgc [on/off]
+╠${prefix}antilinktg [on/off]
+╠${prefix}antilinktt [on/off]
+╠${prefix}antilinkytch [on/off]
+╠${prefix}antilinkytvid [on/off]
+╠${prefix}antilinkig [on/off]
+╠${prefix}antilinkfb [on/off]
+╠${prefix}antilinktwit [on/off]
+╠${prefix}antilinkall [on/off]
+╠${prefix}antivirus [on/off]
+╠${prefix}antitoxic [on/off]
+╠${prefix}antiwame [on/off]
+╠${prefix}nsfw [on/off]
+╠${prefix}promote [reply/tag]
+╠${prefix}demote [reply/tag]
+╠${prefix}react [reply emoji]
+╠${prefix}vote
+╠${prefix}devote
+╠${prefix}upvote
+╠${prefix}checkvote
+╠${prefix}delvote
+╠═══════✪ MAKER 
+╠${prefix}candy
+╠${prefix}blackpinkneon
+╠${prefix}deepsea
+╠${prefix}scifi
+╠${prefix}fiction
+╠${prefix}berry
+╠${prefix}fruitjuice
+╠${prefix}biscuit
+╠${prefix}wood
+╠${prefix}chocolate
+╠${prefix}matrix
+╠${prefix}blood
+╠${prefix}halloween
+╠${prefix}wicker
+╠${prefix}darkgold
+╠${prefix}firework
+╠${prefix}skeleton
+╠${prefix}sand
+╠${prefix}glue
+╠${prefix}leaves
+╠${prefix}magma
+╠${prefix}lava
+╠${prefix}rockart
+╠${prefix}bloodglas
+╠${prefix}underwater
+╠${prefix}textmaker
+╠${prefix}honey
+╠${prefix}ice
+╠${prefix}watercolor
+╠${prefix}multicolor
+╠${prefix}snow
+╠${prefix}harrypot
+╠${prefix}harrypotter
+╠${prefix}brokenglass
+╠${prefix}waterpipe
+╠${prefix}spooky
+╠${prefix}circuit
+╠${prefix}metallic
+╠${prefix}demon
+╠${prefix}sparklechristmas
+╠${prefix}christmas
+╠${prefix}3dchristmas
+╠${prefix}3dbox
+╠${prefix}waterdrop
+╠${prefix}lion2
+╠${prefix}papercut
+╠${prefix}transformer
+╠${prefix}neondevil
+╠${prefix}3davengers
+╠${prefix}3dstone
+╠${prefix}3dstone2
+╠${prefix}summertime
+╠${prefix}thunder
+╠${prefix}window
+╠${prefix}graffiti
+╠${prefix}graffitibike
+╠${prefix}pornhub
+╠${prefix}glitch
+╠${prefix}blackpinkart
+╠${prefix}glitch2
+╠${prefix}glitch3
+╠${prefix}3dspace
+╠${prefix}lion
+╠${prefix}3dneon
+╠${prefix}greenneon
+╠${prefix}bokeh
+╠${prefix}holographic
+╠${prefix}bear
+╠${prefix}wolf
+╠${prefix}joker
+╠${prefix}dropwater
+╠${prefix}dropwater2
+╠${prefix}thewall
+╠${prefix}neonlight
+╠${prefix}natural
+╠${prefix}carbon
+╠${prefix}pencil
+╠${prefix}blackpink2
+╠${prefix}neon
+╠${prefix}neonlight2
+╠${prefix}toxic
+╠${prefix}strawberry
+╠${prefix}discovery
+╠${prefix}1917
+╠ ${prefix}sci_fi
+╠ ${prefix}ancient
+╠ ${prefix}fabric
+╠ ${prefix}hoorror
+╠ ${prefix}whitebear
+╠ ${prefix}juice
+╠ ${prefix}batman
+╠ ${prefix}multicolor
+╠ ${prefix}wonderful
+╠ ${prefix}sketch
+╠ ${prefix}marvel
+╠ ${prefix}foggy
+╠ ${prefix}writing
+╠ ${prefix}halloweenfire
+╠ ${prefix}halloween
+╠ ${prefix}watercolor
+╠ ${prefix}classic
+╠═════✪ DOWNLOAD 	
+╠${prefix}tiktok [url]
+╠${prefix}tiktokaudio [url]
+╠${prefix}instagram [url]
+╠${prefix}spotify [url]
+╠${prefix}mediafire [url]
+╠${prefix}ytmp3 [url|quality]
+╠${prefix}ytmp4 [url|quality]
+╠${prefix}gitclone [repo link]
+╠═══════✪ SEARCH 	
+╠${prefix}play [query]
+╠${prefix}song [query]
+╠${prefix}yts [query]
+╠${prefix}lyrics [query]
+╠${prefix}gimage [query]
+╠${prefix}google [query]
+╠${prefix}anime [query]
+╠${prefix}pinterest [query]
+╠${prefix}image [query]
+╠${prefix}wallpaper [query]
+╠${prefix}searchno [number]
+╠${prefix}horoscope [query]
+╠${prefix}imdb [movie name]
+╠${prefix}weather [loc name]
+╠${prefix}genshin [char name]
+╠${prefix}wikimedia [query]
+╠${prefix}ytsearch [query]
+╠${prefix}ringtone [query]
+╠═══════✪ CONVERT 
+╠ ${prefix}toimage [reply stick]
+╠ ${prefix}sticker [reply img|gif]
+╠ ${prefix}take [reply img|gif|stik]
+╠ ${prefix}smeme [reply img]
+╠ ${prefix}emoji [emoji]
+╠ ${prefix}tovideo [reply img]
+╠ ${prefix}togif [reply stick]
+╠ ${prefix}tovn [reply aud]
+╠ ${prefix}tomp3 [reply vn]
+╠ ${prefix}toaudio [reply vid]
+╠ ${prefix}ebinary [reply txt]
+╠ ${prefix}dbinary [reply txt]
+╠ ${prefix}tinyurl [link]
+╠ ${prefix}styletext [text]
+╠${prefix}volume [reply aud]
+╠${prefix}bass [reply aud]
+╠${prefix}blown [reply aud]
+╠${prefix}deep [reply aud]
+╠${prefix}earrape [reply aud]
+╠${prefix}fast [reply aud]
+╠${prefix}fat [reply aud]
+╠${prefix}nightcore [reply aud]
+╠${prefix}reverse [reply aud]
+╠${prefix}robot [reply aud]
+╠${prefix}slow [reply aud]
+╠${prefix}smooth [reply aud]
+╠${prefix}squirrel [reply aud]
+╠═══════✪ IMG EFFECT 
+╠${prefix}removebg [reply img]
+╠═══════✪ RANDOM IMG 
+╠${prefix}coffee
+╠${prefix}woof
+╠${prefix}meow
+╠${prefix}lizard
+╠${prefix}aesthetic
+╠${prefix}antiwork
+╠${prefix}cosplay
+╠${prefix}car
+╠${prefix}bike
+╠${prefix}doggo
+╠${prefix}cat
+╠${prefix}boneka
+╠${prefix}ulzzangboy
+╠${prefix}ulzzanggirl
+╠${prefix}pubg
+╠${prefix}hacking
+╠${prefix}profilepicture
+╠${prefix}couplepicture
+╠${prefix}wallphone
+╠${prefix}wallml
+╠═══════✪ EMOTE 
+╠${prefix}instagramemoji
+╠${prefix}facebookemoji
+╠${prefix}iphoneemoji
+╠${prefix}samsungemoji
+╠${prefix}joyemoji
+╠${prefix}skypeemoji
+╠${prefix}twitteremoji
+╠${prefix}whatsappemoji
+╠${prefix}microsoftemoji
+╠${prefix}googleemoji
+╠${prefix}pediaemoji
+╠${prefix}microsoftemoji
+╠═══════✪ ANIME 
+╠${prefix}animeneko
+╠${prefix}waifu
+╠${prefix}animewaifu
+╠${prefix}animeawoo
+╠${prefix}shinobu
+╠${prefix}foxgirl
+╠${prefix}animemegumin
+╠${prefix}loli-waifu
+╠${prefix}8ball
+╠${prefix}animenom
+╠${prefix}goose
+╠${prefix}avatar
+╠${prefix}tickle
+╠${prefix}gecg
+╠${prefix}feed
+╠${prefix}husbu
+╠${prefix}neko2
+╠${prefix}randomanime
+╠${prefix}shota
+╠${prefix}waifu2
+╠${prefix}animeslap
+╠${prefix}animepat
+╠${prefix}animeneko
+╠${prefix}animekiss
+╠${prefix}animewlp
+╠${prefix}animecuddle
+╠${prefix}animecry
+╠${prefix}animekill
+╠${prefix}animelick
+╠${prefix}animebite
+╠${prefix}animeyeet
+╠${prefix}animebully
+╠${prefix}animebonk
+╠${prefix}animewink
+╠${prefix}animepoke
+╠${prefix}animesmile
+╠${prefix}animewave
+╠${prefix}animeawoo
+╠${prefix}animeblush
+╠${prefix}animesmug
+╠${prefix}animeglomp
+╠${prefix}animehappy
+╠${prefix}animedance
+╠${prefix}animecringe
+╠${prefix}animehighfive
+╠${prefix}animehandhold
+╠${prefix}animemegumin
+╠${prefix}animesmug
+╠${prefix}couplepp
+╠${prefix}animewall [query]
+╠${prefix}animewall2 [query]
+╠══════✪ STICKER 
+╠ ${prefix}patrick
+╠ ${prefix}emoji
+╠ ${prefix}emojimix
+╠ ${prefix}doge
+╠ ${prefix}lovesticker
+╠ ${prefix}animestick
+╠ ${prefix}spongebob
+╠ ${prefix}gojosatoru
+╠ ${prefix}nicholas
+╠ ${prefix}cartoon
+╠ ${prefix}stickman
+╠════✪ ANIME STICKER 
+╠${prefix}loli
+╠${prefix}bully
+╠${prefix}cuddle
+╠${prefix}cry
+╠${prefix}hug
+╠${prefix}awoo
+╠${prefix}kiss
+╠${prefix}lick
+╠${prefix}pat
+╠${prefix}smug
+╠${prefix}bonk
+╠${prefix}yeet
+╠${prefix}blush
+╠${prefix}smile
+╠${prefix}wave
+╠${prefix}highfive
+╠${prefix}handhold
+╠${prefix}nom
+╠${prefix}glomp
+╠${prefix}bite
+╠${prefix}slap
+╠${prefix}kill
+╠${prefix}happy
+╠${prefix}wink
+╠${prefix}poke
+╠${prefix}dance
+╠${prefix}cringe
+╠${prefix}neko
+╠${prefix}gura
+╠══════✪ SOUND 
+╠ ${prefix}sound1
+╠ ${prefix}sound2
+╠ ${prefix}sound3
+╠ ${prefix}sound4
+╠ ${prefix}sound5
+╠ ${prefix}sound6
+╠ ${prefix}sound7
+╠ ${prefix}sound8
+╠ ${prefix}sound9
+╠ ${prefix}sound10
+╠ ${prefix}sound11
+╠ ${prefix}sound12
+╠ ${prefix}sound13
+╠ ${prefix}sound14
+╠ ${prefix}sound15
+╠ ${prefix}sound16
+╠ ${prefix}sound17
+╠ ${prefix}sound18
+╠ ${prefix}sound19
+╠ ${prefix}sound20
+╠ ${prefix}sound21
+╠ ${prefix}sound22
+╠ ${prefix}sound23
+╠ ${prefix}sound24
+╠ ${prefix}sound25
+╠ ${prefix}sound26
+╠ ${prefix}sound27
+╠ ${prefix}sound28
+╠ ${prefix}sound29
+╠ ${prefix}sound30
+╠ ${prefix}sound31
+╠ ${prefix}sound32
+╠ ${prefix}sound33
+╠ ${prefix}sound34
+╠ ${prefix}sound35
+╠ ${prefix}sound36
+╠ ${prefix}sound37
+╠ ${prefix}sound38
+╠ ${prefix}sound39
+╠ ${prefix}sound40
+╠ ${prefix}sound41
+╠ ${prefix}sound42
+╠ ${prefix}sound43
+╠ ${prefix}sound44
+╠ ${prefix}sound45
+╠ ${prefix}sound46
+╠ ${prefix}sound47
+╠ ${prefix}sound48
+╠ ${prefix}sound49
+╠ ${prefix}sound50
+╠ ${prefix}sound51
+╠ ${prefix}sound52
+╠ ${prefix}sound53
+╠ ${prefix}sound54
+╠ ${prefix}sound55
+╠ ${prefix}sound56
+╠ ${prefix}sound57
+╠ ${prefix}sound58
+╠ ${prefix}sound59
+╠ ${prefix}sound60
+╠ ${prefix}sound61
+╠ ${prefix}sound62
+╠ ${prefix}sound63
+╠ ${prefix}sound64
+╠ ${prefix}sound65
+╠ ${prefix}sound66
+╠ ${prefix}sound67
+╠ ${prefix}sound68
+╠ ${prefix}sound69
+╠ ${prefix}sound70
+╠ ${prefix}sound71
+╠ ${prefix}sound72
+╠ ${prefix}sound73
+╠ ${prefix}sound74
+╠ ${prefix}sound75
+╠ ${prefix}sound76
+╠ ${prefix}sound77
+╠ ${prefix}sound78
+╠ ${prefix}sound79
+╠ ${prefix}sound80
+╠ ${prefix}sound81
+╠ ${prefix}sound82
+╠ ${prefix}sound83
+╠ ${prefix}sound84
+╠ ${prefix}sound85
+╠ ${prefix}sound86
+╠ ${prefix}sound87
+╠ ${prefix}sound88
+╠ ${prefix}sound89
+╠ ${prefix}sound90
+╠ ${prefix}sound91
+╠ ${prefix}sound92
+╠ ${prefix}sound93
+╠ ${prefix}sound94
+╠ ${prefix}sound95
+╠ ${prefix}sound96
+╠ ${prefix}sound97
+╠ ${prefix}sound98
+╠ ${prefix}sound99
+╠ ${prefix}sound100
+╠ ${prefix}sound101
+╠ ${prefix}sound102
+╠ ${prefix}sound103
+╠ ${prefix}sound104
+╠ ${prefix}sound105
+╠ ${prefix}sound106
+╠ ${prefix}sound107
+╠ ${prefix}sound108
+╠ ${prefix}sound109
+╠ ${prefix}sound110
+╠ ${prefix}sound111
+╠ ${prefix}sound112
+╠ ${prefix}sound113
+╠ ${prefix}sound114
+╠ ${prefix}sound115
+╠ ${prefix}sound116
+╠ ${prefix}sound117
+╠ ${prefix}sound118
+╠ ${prefix}sound119
+╠ ${prefix}sound120
+╠ ${prefix}sound121
+╠ ${prefix}sound122
+╠ ${prefix}sound123
+╠ ${prefix}sound124
+╠ ${prefix}sound125
+╠ ${prefix}sound126
+╠ ${prefix}sound127
+╠ ${prefix}sound128
+╠ ${prefix}sound129
+╠ ${prefix}sound130
+╠ ${prefix}sound131
+╠ ${prefix}sound132
+╠ ${prefix}sound133
+╠ ${prefix}sound134
+╠ ${prefix}sound135
+╠ ${prefix}sound136
+╠ ${prefix}sound137
+╠ ${prefix}sound138
+╠ ${prefix}sound139
+╠ ${prefix}sound140
+╠ ${prefix}sound141
+╠ ${prefix}sound142
+╠ ${prefix}sound143
+╠ ${prefix}sound144
+╠ ${prefix}sound145
+╠ ${prefix}sound146
+╠ ${prefix}sound147
+╠ ${prefix}sound148
+╠ ${prefix}sound149
+╠ ${prefix}sound150
+╠ ${prefix}sound151
+╠ ${prefix}sound152
+╠ ${prefix}sound153
+╠ ${prefix}sound154
+╠ ${prefix}sound155
+╠ ${prefix}sound156
+╠ ${prefix}sound157
+╠ ${prefix}sound158
+╠ ${prefix}sound159
+╠ ${prefix}sound160
+╠ ${prefix}sound161
+╠══════✪ GAME 
+╠ ${prefix}truth
+╠ ${prefix}dare
+╠ ${prefix}tictactoe
+╠ ${prefix}delttt
+╠ ${prefix}guess [option]
+╠ ${prefix}math [mode]
+╠ ${prefix}suitpvp [tag]
+╠══✪ ANONYMOUS CHAT 
+╠${prefix}anonymous
+╠${prefix}start
+╠${prefix}next
+╠${prefix}leave
+╠══════✪ DATABASE 
+╠ ${prefix}setcmd
+╠ ${prefix}listcmd
+╠ ${prefix}delcmd
+╠ ${prefix}lockcmd
+╠ ${prefix}addmsg
+╠ ${prefix}listmsg
+╠ ${prefix}getmsg
+╠ ${prefix}delmsg
+╠══════✪ OTHER 
+╠ ${prefix}afk
+╠ ${prefix}id
+╠ ${prefix}toqr [link]
+╠ ${prefix}repeat
+╠ ${prefix}readmore [text]
+╠ ${prefix}toviewonce
+╠ ${prefix}fliptext [text]]
+╠ ${prefix}chatinfo
+╠ ${prefix}alive
+╠ ${prefix}script
+╠ ${prefix}ping
+╠ ${prefix}owner
+╠ ${prefix}menu
+╠ ${prefix}del
+╠ ${prefix}quoted
+╠ ${prefix}listpc
+╠ ${prefix}listgc
+╠ ${prefix}donate
+╠ ${prefix}request
+╠ ${prefix}report [bug]
+╠═══════✪「 BUG MENU 」	
+╠════☾pc attack☽
+╠${prefix}pcbut [number]
+╠${prefix}pcvn [number]
+╠${prefix}pcstick [number]
+╠${prefix}pcfast [number]
+╠${prefix}pcslow [number]
+╠${prefix}pcbunny [number]
+╠${prefix}xcrasher [amount]
+╠${prefix}pccontact [amount]
+╠${prefix}virtex5 [amount]
+╠${prefix}flower [amount]
+╠${prefix}pollbug [amount]
+╠${prefix}catalogbug [amount]
+╠${prefix}trollybug [amount]
+╠${prefix}trollybug2 [amount]
+╠════☾gc attack☽
+╠${prefix}gcslow
+╠${prefix}gcfast
+╠${prefix}gcbunny
+╠${prefix}tagallbug
+╠════☾pc & gc attack☽
+╠${prefix}vnbug [amount]
+╠${prefix}docbug [amount]
+╠${prefix}pcgcslow [number]
+╠${prefix}pcgcfast [number]
+╠${prefix}pcgcbunny [number]
+╠${prefix}textshot
+╠${prefix}docfuck [amount]
+╠${prefix}docsoft [amount]
+╠${prefix}docsoft2 [amount]
+╚═════════════✪
+╔═══════✪ OWNER 	
+╠ ${prefix}self
+╠ ${prefix}public
+╠ ${prefix}join [link]
+╠ ${prefix}leavegc
+╠ ${prefix}setbio
+╠ ${prefix}hijack
+╠ ${prefix}creategroup [name]
+╠ ${prefix}block [user]
+╠ ${prefix}unblock [user]
+╠ ${prefix}broadcast [text]
+╠ ${prefix}setppbot [image]
+╠ ${prefix}setthumb [reply img]
+╠ ${prefix}setexif
+╚═════════════✪`
+let ments = [ownernya, me, ini_mark]       
+XeonBotInc.sendMessage(m.chat, { video: result, caption: xeonezy, mentions: ments }, { quoted: m })
   }
  break
             break
