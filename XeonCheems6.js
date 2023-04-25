@@ -770,7 +770,15 @@ XeonBotInc.ev.emit('messages.upsert', msg)
                 delete tebaklagu[m.sender.split('@')[0]]
             } else m.reply('*Wrong answer!*')
         }
-        
+//math answer
+        if (kuismath.hasOwnProperty[m.sender.split('@')[0]] && isCmd) {
+        kuis = true
+        jawaban = kuismath[m.sender.split('@')[0]]
+        if (budy.toLowerCase() == jawaban) {
+        await XeonBotInc.sendMessage(m.chat, { text: '*Correct Answer!* 🎉' }, { quoted: m })
+        delete kuismath[m.sender.split('@')[0]]
+        } else m.reply('*Wrong answer!*')
+     }
         //TicTacToe\\
 	    this.game = this.game ? this.game : {}
 	    let room = Object.values(this.game).find(room => room.id && room.game && room.state && room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender) && room.state == 'PLAYING')
@@ -1964,7 +1972,7 @@ const pl= await xeonplaymp3.mp3(anup3k.url)
 await XeonBotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(pl.path),
     fileName: anup3k.title + '.mp3',
-    mimetype: 'audio/mp4', ptt: true,
+    mimetype: 'audio/mp4',
     contextInfo:{
         externalAdReply:{
             title:anup3k.title,
