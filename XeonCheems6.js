@@ -775,7 +775,7 @@ XeonBotInc.ev.emit('messages.upsert', msg)
         kuis = true
         jawaban = kuismath[m.sender.split('@')[0]]
         if (budy.toLowerCase() == jawaban) {
-        await XeonBotInc.sendMessage(m.chat, { text: '*Correct Answer!* 🎉' }, { quoted: m })
+        await m.reply('Correct Answer! 🎉')
         delete kuismath[m.sender.split('@')[0]]
         } else m.reply('*Wrong answer!*')
      }
@@ -1112,7 +1112,7 @@ break
                 if (!text) throw `Mode: ${Object.keys(modes).join(' | ')}\nUsage example: ${prefix}math medium`
                 let result = await genMath(text.toLowerCase())
                 XeonBotInc.sendText(m.chat, `*What is the result of: ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} second`, m).then(() => {
-                    kuismath[m.sender.split('@')[0]] = result.jawaban
+                    kuismath[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                 })
                 await sleep(result.waktu)
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) {
