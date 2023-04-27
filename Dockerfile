@@ -9,6 +9,6 @@ WORKDIR /nezuko
 
 COPY . /nezuko
 
-RUN node . 
+RUN yarn
 
 CMD ["yarn", "start"]
