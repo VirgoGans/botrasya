@@ -4,7 +4,7 @@ const chalk = require('chalk')
 
 //aumto functioner
 global.autoTyping = false//auto tying in gc (true to on, false to off)
-global.autoRecord = false //auto recording (true to on, false to off)
+global.autoRecord = true //auto recording (true to on, false to off)
 
 //documents variants
 global.doc1 = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
@@ -15,8 +15,8 @@ global.doc5 = 'application/pdf'
 global.doc6 = 'application/vnd.android.package-archive'
 
 //owmner v card
-global.owner = ['6285735980188'] //ur owner number
-global.ownername = "R" //ur owner name
+global.owner = ['6287816958357'] //ur owner number
+global.ownername = "Virgo" //ur owner name
 global.ytname = "-" //ur yt chanel name
 global.socialm = "GitHub: PATRICK297R" //ur github or insta name
 global.location = "Indonesia" //ur location
@@ -30,7 +30,7 @@ global.websitex = "https://youtu.be/WiIqCdiDjFo" //ur website to be displayed
 global.botscript = 'https://github.com/DGXeon/CheemsBot-MD6' //script link
 global.themeemoji = "🤓" //ur theme emoji
 global.packname = "Stiker" //ur sticker watermark packname
-global.author = "Stiker Wangsaff" //ur sticker watermark author
+global.author = "STIKER WANGSAFF" //ur sticker watermark author
 global.wm = "©Rasya" //ur watermark
 
 // Other
